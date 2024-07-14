@@ -1,3 +1,5 @@
+import { BarLoader } from 'react-spinners';
+
 export const Loader = () => {
-  return <h2>Loader</h2>;
+  return <BarLoader color="red" height={8} />;
 };

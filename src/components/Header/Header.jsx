@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import { FaFlagUsa } from 'react-icons/fa';
 
 import styles from './Header.module.css';
+import { routes } from '../../routes';
 
 export const Header = () => {
   return (
@@ -15,7 +16,7 @@ export const Header = () => {
             <ul className={styles.nav}>
               <li>
                 <NavLink
-                  to="/"
+                  to={routes.HOME}
                   className={({ isActive }) =>
                     isActive ? styles.active : styles.link
                   }
@@ -25,7 +26,7 @@ export const Header = () => {
               </li>
               <li>
                 <NavLink
-                  to="/country"
+                  to={routes.SEARCHCOUNTRY}
                   className={({ isActive }) =>
                     isActive ? styles.active : styles.link
                   }

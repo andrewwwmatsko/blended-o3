@@ -1,7 +1,8 @@
 import { lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 import { Header } from 'components';
+import { routes } from './routes';
 
 const Home = lazy(() =>
   import('pages/Home').then(module => ({ default: module.Home })),
@@ -21,11 +22,12 @@ export const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Header />}>
+        <Route path={routes.HOME} element={<Header />}>
           <Route index element={<Home />} />
-          <Route path="country" element={<SearchCountry />} />
-          <Route path="country/:countryId" element={<Country />} />
+          <Route path={routes.SEARCHCOUNTRY} element={<SearchCountry />} />
+          <Route path={routes.COUNTRY} element={<Country />} />
         </Route>
+        <Route path="*" element={<Navigate to={routes.HOME} />} />
       </Routes>
     </div>
   );
